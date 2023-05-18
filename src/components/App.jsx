@@ -27,10 +27,12 @@ export class App extends Component {
    };
 
    componentDidMount() {
-      const storedContacts = localStorage.getItem('contacts');
-      const parsedContacts = JSON.parse(storedContacts);
-      console.log(parsedContacts);
-      this.setState({contacts:parsedContacts })
+      if (localStorage.contacts) {
+         const storedContacts = localStorage.getItem('contacts');
+         const parsedContacts = JSON.parse(storedContacts);
+         console.log(localStorage);
+         this.setState({ contacts: parsedContacts })
+      };
    }
 
    formSubmitData = ({ name, number }) => {
